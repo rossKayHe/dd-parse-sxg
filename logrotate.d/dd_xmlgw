@@ -1,0 +1,12 @@
+"/u01/app/prd/datadog/*.log" "/u01/app/prd/datadog/PROD/*" "/u01/app/prd/datadog/PRODDMZ/*" {
+    rotate 0
+    daily
+    missingok
+    copytruncate
+    notifempty
+    maxsize 500M
+    lastaction
+        find /u01/app/prd/datadog/ -type f -name '*.1' -exec rm {} \;
+    endscript
+}
+
